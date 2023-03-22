@@ -291,6 +291,14 @@
     
 
 
+    <!-- http://archaeology.link/ontology#arachneitemMatch -->
+
+    <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#arachneitemMatch">
+        <rdfs:subPropertyOf rdf:resource="http://archaeology.link/ontology#exactMatch"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://archaeology.link/ontology#carries -->
 
     <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#carries">
@@ -310,6 +318,14 @@
         <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:label xml:lang="en">has centroid</rdfs:label>
         <rdfs:label xml:lang="de">hat Zentrum</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#chronontologyMatch -->
+
+    <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#chronontologyMatch">
+        <rdfs:subPropertyOf rdf:resource="http://archaeology.link/ontology#exactMatch"/>
     </owl:ObjectProperty>
     
 
@@ -398,6 +414,14 @@
         <rdfs:label xml:lang="en">Getty AAT match</rdfs:label>
         <skos:prefLabel xml:lang="en">Getty AAT Match</skos:prefLabel>
         <skos:scopeNote xml:lang="en">match with Getty AAT item</skos:scopeNote>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#gndMatch -->
+
+    <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#gndMatch">
+        <rdfs:subPropertyOf rdf:resource="http://archaeology.link/ontology#exactMatch"/>
     </owl:ObjectProperty>
     
 
@@ -614,6 +638,22 @@
         <owl:inverseOf rdf:resource="http://archaeology.link/ontology#worksAtPlace"/>
         <rdfs:domain rdf:resource="http://archaeology.link/ontology#Location"/>
         <rdfs:range rdf:resource="http://archaeology.link/ontology#ActorEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#heritagedataMatch -->
+
+    <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#heritagedataMatch">
+        <rdfs:subPropertyOf rdf:resource="http://archaeology.link/ontology#exactMatch"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#iconclassMatch -->
+
+    <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#iconclassMatch">
+        <rdfs:subPropertyOf rdf:resource="http://archaeology.link/ontology#exactMatch"/>
     </owl:ObjectProperty>
     
 
