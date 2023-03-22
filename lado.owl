@@ -213,6 +213,7 @@
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel">
         <rdfs:label xml:lang="en">preferred label</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
     </owl:AnnotationProperty>
     
 
@@ -385,6 +386,18 @@
         <rdfs:range rdf:resource="http://archaeology.link/ontology#GenericPotform"/>
         <rdfs:label xml:lang="en">generalised as</rdfs:label>
         <rdfs:label xml:lang="de">generalisiert als</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#gettyaatMatch -->
+
+    <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#gettyaatMatch">
+        <rdfs:subPropertyOf rdf:resource="http://archaeology.link/ontology#exactMatch"/>
+        <rdfs:comment xml:lang="en">match with Getty AAT item</rdfs:comment>
+        <rdfs:label xml:lang="en">Getty AAT match</rdfs:label>
+        <skos:prefLabel xml:lang="en">Getty AAT Match</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">match with Getty AAT item</skos:scopeNote>
     </owl:ObjectProperty>
     
 
@@ -710,6 +723,18 @@
         <rdfs:range rdf:resource="http://archaeology.link/ontology#InscriptionMakingType"/>
         <rdfs:label xml:lang="en">was made by</rdfs:label>
         <rdfs:label xml:lang="de">wurde angefertigt durch</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://archaeology.link/ontology#wikidataMatch -->
+
+    <owl:ObjectProperty rdf:about="http://archaeology.link/ontology#wikidataMatch">
+        <rdfs:subPropertyOf rdf:resource="http://archaeology.link/ontology#exactMatch"/>
+        <rdfs:comment xml:lang="en">match with Wikidata item</rdfs:comment>
+        <rdfs:label xml:lang="en">Wikidata match</rdfs:label>
+        <skos:prefLabel xml:lang="en">Wikidata match</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">match with Wikidata item</skos:scopeNote>
     </owl:ObjectProperty>
     
 
