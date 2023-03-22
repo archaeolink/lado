@@ -57,6 +57,8 @@
     <owl:AnnotationProperty rdf:about="http://archaeology.link/ontology#identifier">
         <rdfs:comment xml:lang="en">a string conforming to a formal identification system</rdfs:comment>
         <rdfs:label xml:lang="en">identifier</rdfs:label>
+        <skos:prefLabel xml:lang="en">identifier</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">a string conforming to a formal identification system</skos:scopeNote>
         <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/identifier"/>
     </owl:AnnotationProperty>
     
@@ -67,6 +69,8 @@
     <owl:AnnotationProperty rdf:about="http://archaeology.link/ontology#identifier_db">
         <rdfs:comment xml:lang="en">local identifier in a database</rdfs:comment>
         <rdfs:label xml:lang="en">identifier (database)</rdfs:label>
+        <skos:prefLabel xml:lang="en">identifier (database)</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">local identifier in a database</skos:scopeNote>
         <rdfs:subPropertyOf rdf:resource="http://archaeology.link/ontology#identifier"/>
     </owl:AnnotationProperty>
     
@@ -77,6 +81,8 @@
     <owl:AnnotationProperty rdf:about="http://archaeology.link/ontology#identifier_easydb">
         <rdfs:comment xml:lang="en">local identifier in the easydb</rdfs:comment>
         <rdfs:label xml:lang="en">identifier (easydb)</rdfs:label>
+        <skos:prefLabel xml:lang="en">identifier (easydb)</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">local identifier in the easydb</skos:scopeNote>
         <rdfs:subPropertyOf rdf:resource="http://archaeology.link/ontology#identifier"/>
     </owl:AnnotationProperty>
     
@@ -91,6 +97,18 @@
     <!-- http://archaeology.link/ontology#isActorType -->
 
     <owl:AnnotationProperty rdf:about="http://archaeology.link/ontology#isActorType"/>
+    
+
+
+    <!-- http://archaeology.link/ontology#origin_description -->
+
+    <owl:AnnotationProperty rdf:about="http://archaeology.link/ontology#origin_description">
+        <rdfs:comment xml:lang="en">place of origin in the database</rdfs:comment>
+        <rdfs:label xml:lang="en">origin description</rdfs:label>
+        <skos:prefLabel xml:lang="en">origin description</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">place of origin in the database</skos:scopeNote>
+        <rdfs:subPropertyOf rdf:resource="http://archaeology.link/ontology#identifier_db"/>
+    </owl:AnnotationProperty>
     
 
 
