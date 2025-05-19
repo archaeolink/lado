@@ -1163,6 +1163,19 @@ ontology:SYE3_Assignment rdf:type owl:Class ;
                          rdfs:label "SYE3 Assignment"@en .
 
 
+###  http://archaeology.link/ontology#SYE4_Indication
+ontology:SYE4_Indication rdf:type owl:Class ;
+                         rdfs:subClassOf ontology:SYE5_Observation ,
+                                         aaao:ZE18_Critical_Reading ;
+                         rdfs:label "SYE4 Indication"@en .
+
+
+###  http://archaeology.link/ontology#SYE5_Observation
+ontology:SYE5_Observation rdf:type owl:Class ;
+                          rdfs:subClassOf <http://www.cidoc-crm.org/extensions/crmsci/S4_Observation> ;
+                          rdfs:label "SYE5 Observation"@en .
+
+
 ###  http://archaeology.link/ontology#Service
 ontology:Service rdf:type owl:Class ;
                  rdfs:subClassOf skos:Collection ;
@@ -1390,6 +1403,20 @@ crm:E92_Spacetime_Volume rdf:type owl:Class ;
                          ontology:version "7.1.3" ;
                          dc:description "This class comprises 4-dimensional point sets (volumes) in physical spacetime (in contrast to mathematical models of it) regardless of their true geometric forms. They may derive their identity from being the extent of a material phenomenon or from being the interpretation of an expression defining an extent in spacetime. Intersections of instances of E92 Spacetime Volume, E53 Place, and E52 Time-Span are also regarded as instances of E92 Spacetime Volume. An instance of E92 Spacetime Volume is either contiguous or composed of a finite number of contiguous subsets. Its boundaries may be fuzzy due to the properties of the phenomena it derives from or due to the limited precision up to which defining expression can be identified with a real extent in spacetime. The duration of existence of an instance of E92 Spacetime Volume is its projection on time."@en ;
                          rdfs:label "E92 Spacetime Volume"@en .
+
+
+###  http://www.cidoc-crm.org/extensions/crmsci/S4_Observation
+<http://www.cidoc-crm.org/extensions/crmsci/S4_Observation> rdf:type owl:Class ;
+                                                            rdfs:subClassOf <http://www.ics.forth.gr/isl/CRMinf/I1_Argumentation> ;
+                                                            rdfs:comment "This class comprises the activity of gaining scientific knowledge about particular states of physical reality through empirical evidence, experiments and measurements. We define observation in the sense of natural sciences, as a kind of human activity: at some place and within some time-span, certain physical things and their behavior and interactions are observed by human sensory impression, and often enhanced by tools and measurement devices. Observed situations or dimensions may pertain to properties confined to a single instance of S15 Observable Entity or pertain to constellations of multiple instances and relations between them, in particular distances between them. The output of the internal processes of measurement devices that do not require additional human interaction are in general regarded as part of the observation and not as additional inference. Primary data from measurement devices are regarded in this model to be results of observation and can be interpreted as propositions believed to be true within the (known) tolerances and degree of reliability of the device. Measurements and witnessing of events are special cases of observations. Observations result in a belief that certain propositions held at a time within the time-span of the observation. In this model, the degree of confidence in the observed properties is regarded to be “true” by default, but could be described differently by adding a property P3 has note to an instance of S4 Observation"@en ;
+                                                            rdfs:label "S4 Observation"@en .
+
+
+###  http://www.ics.forth.gr/isl/CRMinf/I1_Argumentation
+<http://www.ics.forth.gr/isl/CRMinf/I1_Argumentation> rdf:type owl:Class ;
+                                                      rdfs:subClassOf crm:E13_Attribute_Assignment ;
+                                                      rdfs:comment "This class comprises the activity of making honest inferences or observations. An honest inference or observation is one in which the E39 Actor carrying out the I1 Argumentation justifies and believes that the I6 Belief Value associated with resulting I2 Belief about the I4 Proposition Set is the correct value at the time that the activity was undertaken and that any I3 Inference Logic  or methodology was correctly applied. Only one instance of E39 Actor may carry out an instance of I1 Argumentation, though the E39 Actor may, of course, be an instance of E74 Group."@en ;
+                                                      rdfs:label "I1 Argumentation"@en .
 
 
 ###  http://www.opengis.net/ont/geosparql#Feature
