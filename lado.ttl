@@ -888,20 +888,20 @@ prov:startedAtTime rdf:type owl:DatatypeProperty .
 vocab:Concept rdf:type owl:Class ;
               rdfs:subClassOf rdfs:Class ;
               rdfs:comment "A node which is part of a triple with a vague edge." ;
-              rdfs:label "Concept" .
+              rdfs:label "AMT Concept"@en .
 
 
 ###  http://academic-meta-tool.xyz/vocab#Role
 vocab:Role rdf:type owl:Class ;
            rdfs:subClassOf rdf:Property ;
            rdfs:comment "A vague edge which is part of a triple." ;
-           rdfs:label "Role" .
+           rdfs:label "AMT Role"@en .
 
 
 ###  http://archaeology.link/ontology#AMT_Entity
 ontology:AMT_Entity rdf:type owl:Class ;
                     rdfs:subClassOf crm:E1_CRM_Entity ;
-                    rdfs:label "Academic Meta Tool Entity"@en .
+                    rdfs:label "AMT Entity"@en .
 
 
 ###  http://archaeology.link/ontology#Actor
@@ -1155,9 +1155,21 @@ ontology:Tradition rdf:type owl:Class ;
                    rdfs:subClassOf crm:E55_Type .
 
 
+###  http://purl.obolibrary.org/obo/BFO_0000001
+<http://purl.obolibrary.org/obo/BFO_0000001> rdf:type owl:Class ;
+                                             rdfs:subClassOf <http://schema.org/Thing> ;
+                                             rdfs:label "BFO entity"@en .
+
+
+###  http://schema.org/Thing
+<http://schema.org/Thing> rdf:type owl:Class ;
+                          rdfs:subClassOf prov:Entity ;
+                          rdfs:label "Schema Thing"@en .
+
+
 ###  http://www.cidoc-crm.org/cidoc-crm/E1_CRM_Entity
 crm:E1_CRM_Entity rdf:type owl:Class ;
-                  rdfs:subClassOf prov:Entity ;
+                  rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000001> ;
                   rdfs:comment """This class comprises all things in the universe of discourse of the CIDOC Conceptual Reference Model.
     It is an abstract concept providing for three general properties:
     1.	Identification by name or appellation, and in particular by a preferred identifier
@@ -1165,10 +1177,10 @@ crm:E1_CRM_Entity rdf:type owl:Class ;
     3.	Attachment of free text for the expression of anything not captured by formal properties
     With the exception of E59 Primitive Value, all other classes within the CRM are directly or indirectly specialisations of E1 CRM Entity.
     """ ;
-                  rdfs:label "CRM Entity"@en ,
-                             "CRM Entität"@de ,
+                  rdfs:label "CRM Entität"@de ,
                              "CRM Сущность"@ru ,
                              "CRM实体"@zh ,
+                             "E1 CRM Entity"@en ,
                              "Entidade CRM"@pt ,
                              "Entité CRM"@fr ,
                              "Οντότητα CIDOC CRM"@el .
@@ -1196,8 +1208,8 @@ Instances of Human-Made thing may be the result of modifying pre-existing physic
 Whereas interventions of conservation and repair are not regarded to produce a new Human-Made thing, the results of preparation of natural history specimens that substantially change their natural or original state should be regarded as physical Human-Made things, including the uncovering of petrified biological features from a solid piece of stone. On the other side, scribbling a museum number on a natural object should not be regarded to make it Human-Made. This notwithstanding, parts, sections, segments, or features of a physical Human-Made thing may continue to be non-Human-Made and preserved during the production process, for example natural pearls used as a part of an eardrop.""" ;
                                   rdfs:label "Chose matérielle fabriquée"@fr ,
                                              "Coisa Material Fabricada"@pt ,
+                                             "E24 Physical Human-Made Thing"@en ,
                                              "Hergestelltes"@de ,
-                                             "Physical Human-Made Thing"@en ,
                                              "Ανθρωπογενές Υλικό Πράγμα"@el ,
                                              "Физическая Рукотворная Вещь"@ru ,
                                              "人造实体物"@zh .
@@ -1336,12 +1348,14 @@ sf:Point rdf:type owl:Class ;
 
 ###  http://www.w3.org/1999/02/22-rdf-syntax-ns#Property
 rdf:Property rdf:type owl:Class ;
-             rdfs:subClassOf ontology:AMT_Entity .
+             rdfs:subClassOf ontology:AMT_Entity ;
+             rdfs:label "RDFs Property"@en .
 
 
 ###  http://www.w3.org/2000/01/rdf-schema#Class
 rdfs:Class rdf:type owl:Class ;
-           rdfs:subClassOf ontology:AMT_Entity .
+           rdfs:subClassOf ontology:AMT_Entity ;
+           rdfs:label "RDFs Class"@en .
 
 
 ###  http://www.w3.org/2002/07/owl#Thing
@@ -1352,7 +1366,7 @@ owl:Thing rdfs:label "OWL Thing"@de ,
 ###  http://www.w3.org/2004/02/skos/core#Collection
 skos:Collection rdf:type owl:Class ;
                 rdfs:subClassOf crm:E1_CRM_Entity ;
-                rdfs:label "Collection"@en .
+                rdfs:label "SKOS Collection"@en .
 
 
 ###  http://www.w3.org/2004/02/skos/core#Concept
@@ -1388,7 +1402,7 @@ prov:Agent rdf:type owl:Class ;
 ###  http://www.w3.org/ns/prov#Entity
 prov:Entity rdf:type owl:Class ;
             rdfs:subClassOf <https://www.w3.org/2000/01/rdf-schema#Resource> ;
-            rdfs:label "Entity"@en .
+            rdfs:label "PROV-O Entity"@en .
 
 
 ###  http://www.w3.org/ns/prov#Organization
@@ -1449,7 +1463,7 @@ pleiades:Place rdf:type owl:Class ;
 
 ###  https://www.w3.org/2000/01/rdf-schema#Resource
 <https://www.w3.org/2000/01/rdf-schema#Resource> rdf:type owl:Class ;
-                                                 rdfs:label "Resource"@en .
+                                                 rdfs:label "RDFs Resource"@en .
 
 
 #################################################################
