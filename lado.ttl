@@ -8,6 +8,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix arno: <http://archaeonatural.cloud/ont/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix lado: <http://archaeology.link/ontology#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -1181,35 +1182,35 @@ ontology:Tradition rdf:type owl:Class ;
 
 
 ###  http://archaeonatural.cloud/ont/Country
-<http://archaeonatural.cloud/ont/Country> rdf:type owl:Class ;
-                                          rdfs:subClassOf ontology:Place ;
-                                          rdfs:label "ArnO Country"@en .
+arno:Country rdf:type owl:Class ;
+             rdfs:subClassOf ontology:Place ;
+             rdfs:label "ArnO Country"@en .
 
 
 ###  http://archaeonatural.cloud/ont/DiscoverySite
-<http://archaeonatural.cloud/ont/DiscoverySite> rdf:type owl:Class ;
-                                                rdfs:subClassOf pleiades:Location ;
-                                                rdfs:label "ArnO Discovery Site"@en .
+arno:DiscoverySite rdf:type owl:Class ;
+                   rdfs:subClassOf pleiades:Location ;
+                   rdfs:label "ArnO Discovery Site"@en .
 
 
 ###  http://archaeonatural.cloud/ont/Place
-<http://archaeonatural.cloud/ont/Place> rdf:type owl:Class ;
-                                        rdfs:subClassOf ontology:Place ;
-                                        rdfs:comment "unspecified location information for the sample, e.g. administrative or topographic region or mountains/rivers/lakes/cities nearby"@en ;
-                                        rdfs:label "ArnO Place"@en .
+arno:Place rdf:type owl:Class ;
+           rdfs:subClassOf ontology:Place ;
+           rdfs:comment "unspecified location information for the sample, e.g. administrative or topographic region or mountains/rivers/lakes/cities nearby"@en ;
+           rdfs:label "ArnO Place"@en .
 
 
 ###  http://archaeonatural.cloud/ont/Site
-<http://archaeonatural.cloud/ont/Site> rdf:type owl:Class ;
-                                       rdfs:subClassOf pleiades:Location ;
-                                       rdfs:label "ArnO Site"@en .
+arno:Site rdf:type owl:Class ;
+          rdfs:subClassOf pleiades:Location ;
+          rdfs:label "ArnO Site"@en .
 
 
 ###  http://archaeonatural.cloud/ont/SpatiotemporalInformation
-<http://archaeonatural.cloud/ont/SpatiotemporalInformation> rdf:type owl:Class ;
-                                                            rdfs:subClassOf geosparql:SpatialObject ;
-                                                            rdfs:comment "Information containing of time period and geolocation information, thus forming a point in a 4-dimensional spatiotemporal feature space"@en ;
-                                                            rdfs:label "ArnO Spatiotemporal Information"@en .
+arno:SpatiotemporalInformation rdf:type owl:Class ;
+                               rdfs:subClassOf geosparql:SpatialObject ;
+                               rdfs:comment "Information containing of time period and geolocation information, thus forming a point in a 4-dimensional spatiotemporal feature space"@en ;
+                               rdfs:label "ArnO Spatiotemporal Information"@en .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000001
