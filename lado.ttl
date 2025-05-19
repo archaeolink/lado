@@ -992,7 +992,7 @@ ontology:Gaulish rdf:type owl:Class ;
 
 ###  http://archaeology.link/ontology#GenericPotform
 ontology:GenericPotform rdf:type owl:Class ;
-                        rdfs:subClassOf crm:E55_Type ;
+                        rdfs:subClassOf ontology:Terminology_Type ;
                         rdfs:label "Generic potform"@en ,
                                    "Generische Form"@de .
 
@@ -1006,7 +1006,7 @@ ontology:Graffito rdf:type owl:Class ;
 
 ###  http://archaeology.link/ontology#IconographyReference
 ontology:IconographyReference rdf:type owl:Class ;
-                              rdfs:subClassOf crm:E55_Type ;
+                              rdfs:subClassOf ontology:Terminology_Type ;
                               rdfs:label "Iconography Reference"@en .
 
 
@@ -1139,9 +1139,18 @@ ontology:RepositoryLocation rdf:type owl:Class ;
                                        "Repository Location"@en .
 
 
+###  http://archaeology.link/ontology#SYE10_Citation
+ontology:SYE10_Citation rdf:type owl:Class ;
+                        rdfs:subClassOf ontology:SYE11_ObservationType ,
+                                        aaao:ZE19_Naming ;
+                        ontology:hasType ontology:SYE11_ObservationType ;
+                        rdfs:label "SYE10 Citation"@en .
+
+
 ###  http://archaeology.link/ontology#SYE11_ObservationType
 ontology:SYE11_ObservationType rdf:type owl:Class ;
-                               rdfs:subClassOf crm:E55_Type .
+                               rdfs:subClassOf crm:E55_Type ;
+                               rdfs:label "SYE11 Observation Type"@en .
 
 
 ###  http://archaeology.link/ontology#SYE1_InformationCarrier
@@ -1176,6 +1185,41 @@ ontology:SYE5_Observation rdf:type owl:Class ;
                           rdfs:label "SYE5 Observation"@en .
 
 
+###  http://archaeology.link/ontology#SYE6_GeometricComparison
+ontology:SYE6_GeometricComparison rdf:type owl:Class ;
+                                  rdfs:subClassOf ontology:SYE11_ObservationType ,
+                                                  <http://www.ics.forth.gr/isl/CRMdig/D11_Digital_Measurement_Event> ,
+                                                  aaao:ZE13_Speech_Act ,
+                                                  aaao:ZE17_Digital_Reading ;
+                                  ontology:hasType ontology:SYE11_ObservationType ;
+                                  rdfs:label "SYE6 Geometric Comparison"@en .
+
+
+###  http://archaeology.link/ontology#SYE7_QuantitativeAnalysis
+ontology:SYE7_QuantitativeAnalysis rdf:type owl:Class ;
+                                   rdfs:subClassOf ontology:SYE11_ObservationType ,
+                                                   <http://www.ics.forth.gr/isl/CRMdig/D10_Software_Execution> ,
+                                                   aaao:ZE17_Digital_Reading ;
+                                   ontology:hasType ontology:SYE11_ObservationType ;
+                                   rdfs:label "SYE7 Quantitative Analysis"@en .
+
+
+###  http://archaeology.link/ontology#SYE8_VisualItem
+ontology:SYE8_VisualItem rdf:type owl:Class ;
+                         rdfs:subClassOf ontology:SYE11_ObservationType ,
+                                         crm:E36_Visual_Item ;
+                         ontology:hasType ontology:SYE11_ObservationType ;
+                         rdfs:label "SYE8 Visual Item"@en .
+
+
+###  http://archaeology.link/ontology#SYE9_Citation
+ontology:SYE9_Citation rdf:type owl:Class ;
+                       rdfs:subClassOf ontology:SYE11_ObservationType ,
+                                       aaao:ZE4_Classificatory_Status ;
+                       ontology:hasType ontology:SYE11_ObservationType ;
+                       rdfs:label "SYE9 Citation"@en .
+
+
 ###  http://archaeology.link/ontology#Service
 ontology:Service rdf:type owl:Class ;
                  rdfs:subClassOf skos:Collection ;
@@ -1201,6 +1245,12 @@ ontology:Stylus rdf:type owl:Class ;
                            "Stylus"@en .
 
 
+###  http://archaeology.link/ontology#Terminology_Type
+ontology:Terminology_Type rdf:type owl:Class ;
+                          rdfs:subClassOf crm:E55_Type ;
+                          rdfs:label "Terminology Type"@en .
+
+
 ###  http://archaeology.link/ontology#Tool
 ontology:Tool rdf:type owl:Class ;
               rdfs:subClassOf ontology:InscriptionMakingType ;
@@ -1210,7 +1260,7 @@ ontology:Tool rdf:type owl:Class ;
 
 ###  http://archaeology.link/ontology#Tradition
 ontology:Tradition rdf:type owl:Class ;
-                   rdfs:subClassOf crm:E55_Type .
+                   rdfs:subClassOf ontology:Terminology_Type .
 
 
 ###  http://archaeonatural.cloud/ont/Country
@@ -1263,6 +1313,12 @@ crm:E13_Attribute_Assignment rdf:type owl:Class ;
                              rdfs:label "E13 Attribute Assignment"@en .
 
 
+###  http://www.cidoc-crm.org/cidoc-crm/E16_Measurement
+crm:E16_Measurement rdf:type owl:Class ;
+                    rdfs:subClassOf crm:E13_Attribute_Assignment ;
+                    rdfs:label "E16 Measurement"@en .
+
+
 ###  http://www.cidoc-crm.org/cidoc-crm/E1_CRM_Entity
 crm:E1_CRM_Entity rdf:type owl:Class ;
                   rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000001> ;
@@ -1298,7 +1354,7 @@ The class also includes all aggregates of objects made for functional purposes o
 
 ###  http://www.cidoc-crm.org/cidoc-crm/E24_Physical_Human-Made_Thing
 crm:E24_Physical_Human-Made_Thing rdf:type owl:Class ;
-                                  rdfs:subClassOf crm:E1_CRM_Entity ;
+                                  rdfs:subClassOf crm:E71_Human-Made_Thing ;
                                   rdfs:comment """This class comprises all persistent physical items of any size that are purposely created by human activity. This class comprises, besides others, Human-Made objects, such as a sword, and Human-Made features, such as rock art. For example, a “cup and ring” carving on bedrock is regarded as instance of E24 Physical Human-Made Thing.
 Instances of Human-Made thing may be the result of modifying pre-existing physical things, preserving larger parts or most of the original matter and structure, which poses the question if they are new or even Human-Made, the respective interventions of production made on such original material should be obvious and sufficient to regard that the product has a new, distinct identity and intended function and is human-made. Substantial continuity of the previous matter and structure in the new product can be documented by describing the production process also as an instance of E81 Transformation.
 Whereas interventions of conservation and repair are not regarded to produce a new Human-Made thing, the results of preparation of natural history specimens that substantially change their natural or original state should be regarded as physical Human-Made things, including the uncovering of petrified biological features from a solid piece of stone. On the other side, scribbling a museum number on a natural object should not be regarded to make it Human-Made. This notwithstanding, parts, sections, segments, or features of a physical Human-Made thing may continue to be non-Human-Made and preserved during the production process, for example natural pearls used as a part of an eardrop.""" ;
@@ -1324,10 +1380,28 @@ crm:E25_Human-Made_Feature rdf:type owl:Class ;
                                       "人造外貌表征"@zh .
 
 
+###  http://www.cidoc-crm.org/cidoc-crm/E28_Conceptual_Object
+crm:E28_Conceptual_Object rdf:type owl:Class ;
+                          rdfs:subClassOf crm:E71_Human-Made_Thing ;
+                          rdfs:label "E28 Conceptual Object"@en .
+
+
 ###  http://www.cidoc-crm.org/cidoc-crm/E2_Temporal_Entity
 crm:E2_Temporal_Entity rdf:type owl:Class ;
                        rdfs:subClassOf skos:Concept ;
                        rdfs:label "E2 Temporal Entity" .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E35_Title
+crm:E35_Title rdf:type owl:Class ;
+              rdfs:subClassOf crm:E41_Appellation ;
+              rdfs:label "E35 Title"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E36_Visual_Item
+crm:E36_Visual_Item rdf:type owl:Class ;
+                    rdfs:subClassOf crm:E73_Information_Object ;
+                    rdfs:label "E36 Visual Item"@en .
 
 
 ###  http://www.cidoc-crm.org/cidoc-crm/E39_Actor
@@ -1343,6 +1417,18 @@ crm:E39_Actor rdf:type owl:Class ;
                          "Δράστης"@el ,
                          "Агент"@ru ,
                          "角色"@zh .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E41_Appellation
+crm:E41_Appellation rdf:type owl:Class ;
+                    rdfs:subClassOf crm:E90_Symbolic_Object ;
+                    rdfs:label "E41 Appellation"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E42_Identifier
+crm:E42_Identifier rdf:type owl:Class ;
+                   rdfs:subClassOf crm:E41_Appellation ;
+                   rdfs:label "E42 Identifier"@en .
 
 
 ###  http://www.cidoc-crm.org/cidoc-crm/E4_Period
@@ -1389,12 +1475,48 @@ crm:E5_Event rdf:type owl:Class ;
              rdfs:label "E5 Event"@en .
 
 
+###  http://www.cidoc-crm.org/cidoc-crm/E65_Creation
+crm:E65_Creation rdf:type owl:Class ;
+                 rdfs:subClassOf crm:E7_Activity ;
+                 rdfs:label "E65 Creation"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E70_Thing
+crm:E70_Thing rdf:type owl:Class ;
+              rdfs:subClassOf crm:E77_Persistent_Item ;
+              rdfs:label "E70 Thing"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E71_Human-Made_Thing
+crm:E71_Human-Made_Thing rdf:type owl:Class ;
+                         rdfs:subClassOf crm:E70_Thing ;
+                         rdfs:label "E71 Human-Made Thing"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E73_Information_Object
+crm:E73_Information_Object rdf:type owl:Class ;
+                           rdfs:subClassOf crm:E90_Symbolic_Object ;
+                           rdfs:label "E73 Information Object"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E77_Persistent_Item
+crm:E77_Persistent_Item rdf:type owl:Class ;
+                        rdfs:subClassOf crm:E1_CRM_Entity ;
+                        rdfs:label "E77 Persistent Item"@en .
+
+
 ###  http://www.cidoc-crm.org/cidoc-crm/E7_Activity
 crm:E7_Activity rdf:type owl:Class ;
                 rdfs:subClassOf prov:Activity ;
                 dc:description """This class comprises actions intentionally carried out by instances of E39 Actor that result in changes of state in the cultural, social, or physical systems documented.
 This notion includes complex, composite, and long-lasting actions such as the building of a settlement or a war, as well as simple, short-lived actions such as the opening of a door."""@en ;
                 rdfs:label "E7 Activity"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E90_Symbolic_Object
+crm:E90_Symbolic_Object rdf:type owl:Class ;
+                        rdfs:subClassOf crm:E28_Conceptual_Object ;
+                        rdfs:label "E90 Symbolic Object"@en .
 
 
 ###  http://www.cidoc-crm.org/cidoc-crm/E92_Spacetime_Volume
@@ -1410,6 +1532,115 @@ crm:E92_Spacetime_Volume rdf:type owl:Class ;
                                                             rdfs:subClassOf <http://www.ics.forth.gr/isl/CRMinf/I1_Argumentation> ;
                                                             rdfs:comment "This class comprises the activity of gaining scientific knowledge about particular states of physical reality through empirical evidence, experiments and measurements. We define observation in the sense of natural sciences, as a kind of human activity: at some place and within some time-span, certain physical things and their behavior and interactions are observed by human sensory impression, and often enhanced by tools and measurement devices. Observed situations or dimensions may pertain to properties confined to a single instance of S15 Observable Entity or pertain to constellations of multiple instances and relations between them, in particular distances between them. The output of the internal processes of measurement devices that do not require additional human interaction are in general regarded as part of the observation and not as additional inference. Primary data from measurement devices are regarded in this model to be results of observation and can be interpreted as propositions believed to be true within the (known) tolerances and degree of reliability of the device. Measurements and witnessing of events are special cases of observations. Observations result in a belief that certain propositions held at a time within the time-span of the observation. In this model, the degree of confidence in the observed properties is regarded to be “true” by default, but could be described differently by adding a property P3 has note to an instance of S4 Observation"@en ;
                                                             rdfs:label "S4 Observation"@en .
+
+
+###  http://www.cidoc-crm.org/extensions/crmtex/TX5_Text_Recognition
+<http://www.cidoc-crm.org/extensions/crmtex/TX5_Text_Recognition> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf crm:E65_Creation ;
+                                                                  rdfs:comment """Scope note:
+This class comprises activities of recognizing physical features on some surface, often an instance of TX4 Writing Field, as an arrangement of a series of identifiable glyphs of some known script, deciphered or not, in an order characteristic for a text.
+For study purposes, the text recognition procedure requires a scientific autoptic examination of the text. An autoptic examination consists of an accurate analysis of the surface and the signs, and prescribes the use of specific tools and procedures for establishing the exact value of each sign on the physical feature. Deterioration of the original medium or “sloppy” writing may render parts of the original text as undecipherable or ambiguous, which may be annotated in the transcript following epigraphic standards; a text recognition typically results in a record of an equivalent sequence of graphemes on another persistent medium in a scholarly established form of representation of the respective graphemes, often called a “transcript”.
+An instance of TX5 Text Recognition may in particular apply even to a single glyph, typically forming part of an instance of TX5 Text Recognition applying to a larger sequence of glyphs containing the former glyph.
+The recognition process may be assisted by mechanical means, imaging technology, or a traditional squeeze for incised glyphs. In case the recognition process is solely based on the latter, the observation concerns only the representations on the latter as present to the researcher in some physical form or projection and should unambiguously be documented as such.
+
+In case the recognized text has not been documented in a transcript, text recognition may constitute an implicit part of an overarching reading process, instance of TX14 Reading, which has resulted in other noteworthy propositions related to the content of the recognized text. On the other side, recognition of single glyphs or contracted parts of texts, as they are characteristic for the use of ligatured scripts, may quite well be implicitly supported by the reader’s comprehension of the text and the creator of the transcript may have chosen not to annotate parts that the reader regarded as unambiguous. Since these cases can often hardly be separated from the shape recognition of the glyphs in isolation, documenting such implicit comprehension as a separate process may not be relevant. It is however regarded as good practice to document explicitly the reading process and associated interpretative reasoning for any non-trivial resolution of ambiguity or gaps in the recognized text that has a bearing on the transcript or further completion of the transcript.
+
+Examples:
+- The autoptic investigation of the South inscription (TX1) on the Arch of Constantine (E22) made by Rodolfo Lanciani between 1893 and 1901.
+
+In First Order Logic:
+- TX5(x) ⇒ S4(x)
+- TX5(x) ⇒ E65(x)"""@en ;
+                                                                  rdfs:label "TX5 Text Recognition"@en .
+
+
+###  http://www.ics.forth.gr/isl/CRMdig/D10_Software_Execution
+<http://www.ics.forth.gr/isl/CRMdig/D10_Software_Execution> rdf:type owl:Class ;
+                                                            rdfs:subClassOf <http://www.ics.forth.gr/isl/CRMdig/D7_Digital_Machine_Event> ;
+                                                            rdfs:comment """This class comprises events by which a digital device runs a software program or a series of  computing 
+	operations on a digital object  as a single task, which is completely determined by its digital input, 
+	the software and the generic properties of the device."""@en ;
+                                                            rdfs:label "D10 Software Execution"@en .
+
+
+###  http://www.ics.forth.gr/isl/CRMdig/D11_Digital_Measurement_Event
+<http://www.ics.forth.gr/isl/CRMdig/D11_Digital_Measurement_Event> rdf:type owl:Class ;
+                                                                   rdfs:subClassOf crm:E16_Measurement ,
+                                                                                   <http://www.ics.forth.gr/isl/CRMdig/D7_Digital_Machine_Event> ;
+                                                                   rdfs:comment """This class comprises actions measuring physical properties using a digital device, 
+	that are determined by a systematic procedure and creates an instance of D9 Data Object, 
+	which is stored on an instance of D13 Digital Information Carrier. 
+	In contrast to instances of D10 Software Execution, environmental factors have an intended influence on the outcome of an instance of D11 Digital Measurement Event. 
+	Measurement devices may include running distinct software, such as the RAW to JPEG conversion in digital cameras. 
+	In this case, the event is regarded as instance of both classes, D10 Software Execution and D11 Digital Measurement Event."""@en ;
+                                                                   rdfs:label "D11 Digital Measurement Event"@en .
+
+
+###  http://www.ics.forth.gr/isl/CRMdig/D14_Software
+<http://www.ics.forth.gr/isl/CRMdig/D14_Software> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object> ;
+                                                  rdfs:comment """This class comprises software codes,computer programs,procedures, and functions that are
+	used to operate a system of digital objects."""@en ;
+                                                  rdfs:label "D14 Software"@en .
+
+
+###  http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object
+<http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object> rdf:type owl:Class ;
+                                                       rdfs:subClassOf crm:E73_Information_Object ;
+                                                       rdfs:comment """This class comprises identifiable immaterial items that can be represented as sets of bit sequences, 
+	such as data sets, e-texts, images, audio or video items, software, etc., and are documented as single units. 
+	Any aggregation of instances of D1 Digital Object into a whole treated as single unit is also regarded as an instance of D1 Digital Object. 
+	This means that for instance, the content of a DVD, an XML file on it, and an element of this file, are regarded as distinct instances of 
+	D1 Digital Object, mutually related by the P106 is composed of (forms part of) property.
+A D1 Digital Object does not depend on a specific physical carrier, and it can exist on one or more carriers simultaneously."""@en ;
+                                                       rdfs:label "D1 Digital Object"@en .
+
+
+###  http://www.ics.forth.gr/isl/CRMdig/D2_Digitization_Process
+<http://www.ics.forth.gr/isl/CRMdig/D2_Digitization_Process> rdf:type owl:Class ;
+                                                             rdfs:subClassOf <http://www.ics.forth.gr/isl/CRMdig/D11_Digital_Measurement_Event> ;
+                                                             rdfs:comment """This class comprises events that result in the creation of instances of D9 Data Object that 
+	represent the appearance and/or form of an instance of E18 Physical Thing such as paper documents, statues, buildings, paintings, etc. 
+	A particular case is the analogue-to-digital conversion of audiovisual material.
+	This class represents the transition from a material thing to an immaterial representation of it. 
+	The characteristic subsequent processing steps on digital objects are regarded as instances of D3 Formal Derivation."""@en ;
+                                                             rdfs:label "D2 Digitization Process"@en .
+
+
+###  http://www.ics.forth.gr/isl/CRMdig/D30_Annotation_Event
+<http://www.ics.forth.gr/isl/CRMdig/D30_Annotation_Event> rdf:type owl:Class ;
+                                                          rdfs:subClassOf crm:E65_Creation ;
+                                                          rdfs:comment "This class comprises events that describe the creation of associations (Annotation Objects) between objects or areas of objects of the Repository, with other objects or regions or persons, places, events. It is the event that creates the Annotation Object."@en ;
+                                                          rdfs:label "D30 Annotation Event"@en .
+
+
+###  http://www.ics.forth.gr/isl/CRMdig/D3_Formal_Derivation
+<http://www.ics.forth.gr/isl/CRMdig/D3_Formal_Derivation> rdf:type owl:Class ;
+                                                          rdfs:subClassOf <http://www.ics.forth.gr/isl/CRMdig/D10_Software_Execution> ;
+                                                          rdfs:comment """This class comprises events that result in the creation of a D1 Digital Object from another one following a deterministic algorithm, 
+	such that the resulting instance of digital object shares representative properties with the original object. 
+	In other words, this class describes the transition from an immaterial object referred to by property L21 used as derivation source (was derivation source for) 
+	to another immaterial object referred to by property L22 created derivative (was derivative created by) preserving the 
+	representation of some things but in a different form. Characteristic examples are colour corrections, contrast changes and resizing of images."""@en ;
+                                                          rdfs:label "D3 Formal Derivation"@en .
+
+
+###  http://www.ics.forth.gr/isl/CRMdig/D7_Digital_Machine_Event
+<http://www.ics.forth.gr/isl/CRMdig/D7_Digital_Machine_Event> rdf:type owl:Class ;
+                                                              rdfs:subClassOf crm:E65_Creation ;
+                                                              rdfs:comment """This class comprises events that happen on physical digital devices following a human activity that intentionally caused its 
+	immediate or delayed initiation and results in the creation of a new instance of D1 Digital Object on behalf of the human actor. 
+	The input of a D7 Digital Machine Event may be parameter settings and/or data to be processed. 
+	Some D7 Digital Machine Events may form part of a wider E65 Creation event. 
+	In this case, all machine output of the partial events is regarded as creation of the overall activity."""@en ;
+                                                              rdfs:label "D7 Digital Machine Event"@en .
+
+
+###  http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object
+<http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object> ;
+                                                    rdfs:comment "This class comprises instances of D1 Digital Object that are the direct result of a digital  measurement or a formal derivative of it, containing quantitative properties of some physical things or other constellations of matter."@en ;
+                                                    rdfs:label "D9 Data Object"@en .
 
 
 ###  http://www.ics.forth.gr/isl/CRMinf/I1_Argumentation
@@ -1592,6 +1823,16 @@ aaao:ZE13_Speech_Act rdf:type owl:Class ;
                      rdfs:label "ZE13 Speech Act"@en .
 
 
+###  https://ontology.swissartresearch.net/aaao/ZE17_Digital_Reading
+aaao:ZE17_Digital_Reading rdf:type owl:Class ;
+                          rdfs:subClassOf <http://www.cidoc-crm.org/extensions/crmtex/TX5_Text_Recognition> ,
+                                          <http://www.ics.forth.gr/isl/CRMdig/D7_Digital_Machine_Event> ,
+                                          aaao:ZE13_Speech_Act ;
+                          rdfs:comment """An instance of digital reading is a digital processing event guided by a set of instructions or parameters which in turn returns a digital output. The digital output will consist in a set of propositions related to the 'read' input which might include things like classifications, identifications, transformations, comparisons and so on. In the context of semantic data processes, such output might consist in semantically encoded knowledge graph statements, the collection of which may be referred to as an I4 Propositional Set, which can be regarded as the 'conclusion' of the digital reading. As such, Digital reading may be regarded as a computational process guided by a parametrized hypothesis resulting in a new propositional dataset for scientific consideration. The propositional information generated by the digital reading process should be considered as provisional knowledge posited under a hypothesis. Typically propositions generated by the digital reading may become the subject of further scholarly research.
+Instances of this class come to be when a process is initiated to generate new information and finish upon completion of that process or if the process is interrupted and fails to complete."""@en ;
+                          rdfs:label "ZE17 Digital Reading"@en .
+
+
 ###  https://ontology.swissartresearch.net/aaao/ZE18_Critical_Reading
 aaao:ZE18_Critical_Reading rdf:type owl:Class ;
                            rdfs:subClassOf aaao:ZE13_Speech_Act ;
@@ -1602,6 +1843,15 @@ aaao:ZE18_Critical_Reading rdf:type owl:Class ;
 aaao:ZE19_Naming rdf:type owl:Class ;
                  rdfs:subClassOf aaao:ZE13_Speech_Act ;
                  rdfs:label "ZE19 Naming"@en .
+
+
+###  https://ontology.swissartresearch.net/aaao/ZE4_Classificatory_Status
+aaao:ZE4_Classificatory_Status rdf:type owl:Class ;
+                               rdfs:subClassOf crm:E13_Attribute_Assignment ;
+                               rdfs:comment """An instance of classificatory status is the collective ascription of a type to an object by a community. The substance of the classificatory status is the communal commitment to the classification of the object in question according to the designated type.
+Instances of classificatory status are recognizable through evidence of community members adopting the intentional stance of so-classifying the object in question, as observable from direct witnesses, through the reports of competent observers or through evidence of a declarative act [e.g.: E17 Type Assignment] initiating this status.
+Instances of classificatory status may come to be through a formal process such as a declarative act of classification [E17 Type Assignment], or may have arisen through habit, fiat or be of unknown origin. Instances of classificatory status may end either though a formal process, such as a new declarative act of classification, be officially declassified, or may simply fade out of use, be eliminated by fiat or be of unknown reason."""@en ;
+                               rdfs:label "ZE4 Classificatory Status"@en .
 
 
 ###  https://pleiades.stoa.org/places/vocab#Location
