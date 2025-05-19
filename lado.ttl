@@ -23,7 +23,6 @@
 @base <http://archaeology.link/ontology#> .
 
 <http://archaeology.link/ontology#> rdf:type owl:Ontology ;
-                                     owl:imports crm: ;
                                      dc:contributor "Florian Thiery, Allard Mees" ;
                                      dc:creator "Florian Thiery, Allard Mees" ;
                                      dc:description "This ontology contains classes to describe data of the LEIZA."@en ;
