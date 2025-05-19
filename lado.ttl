@@ -42,6 +42,14 @@
 vocab:placeholder rdf:type owl:AnnotationProperty .
 
 
+###  http://archaeology.link/ontology#hasLocation
+ontology:hasLocation rdf:type owl:AnnotationProperty .
+
+
+###  http://archaeology.link/ontology#hasType
+ontology:hasType rdf:type owl:AnnotationProperty .
+
+
 ###  http://archaeology.link/ontology#isActorStatus
 ontology:isActorStatus rdf:type owl:AnnotationProperty .
 
@@ -300,9 +308,7 @@ ontology:hasKilnsite rdf:type owl:ObjectProperty ;
 ###  http://archaeology.link/ontology#hasLocation
 ontology:hasLocation rdf:type owl:ObjectProperty ;
                      rdfs:domain ontology:Place ;
-                     rdfs:range ontology:Location ;
-                     rdfs:label "has location"@en ,
-                                "hat Standort"@de .
+                     rdfs:range ontology:Location .
 
 
 ###  http://archaeology.link/ontology#hasMemberItem
@@ -395,9 +401,7 @@ ontology:hasStatus rdf:type owl:ObjectProperty ;
 ontology:hasType rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf ontology:hasBroaderItem ;
                  rdfs:domain owl:Thing ;
-                 rdfs:range crm:E55_Type ;
-                 rdfs:label "has type"@en ,
-                            "hat Typ"@de .
+                 rdfs:range crm:E55_Type .
 
 
 ###  http://archaeology.link/ontology#hasWorker
@@ -958,9 +962,10 @@ ontology:DieImpression rdf:type owl:Class ;
 
 ###  http://archaeology.link/ontology#DiscoverySite
 ontology:DiscoverySite rdf:type owl:Class ;
-                       rdfs:subClassOf pleiades:Location ;
-                       rdfs:label "Discovery Site"@en ,
-                                  "Entdeckungsort"@de .
+                       rdfs:subClassOf ontology:Location ,
+                                       crm:E55_Type ;
+                       ontology:hasType crm:E55_Type ;
+                       rdfs:label "Discovery Site"@en .
 
 
 ###  http://archaeology.link/ontology#Event
@@ -1050,14 +1055,15 @@ ontology:KilnFiringPerson rdf:type owl:Class ;
 
 ###  http://archaeology.link/ontology#KilnRegion
 ontology:KilnRegion rdf:type owl:Class ;
-                    rdfs:subClassOf pleiades:Location ;
-                    rdfs:label "Kiln region"@en ,
-                               "Produktionsregion"@de .
+                    rdfs:subClassOf ontology:Location ;
+                    ontology:hasType crm:E55_Type ;
+                    rdfs:label "Kiln Region"@en .
 
 
 ###  http://archaeology.link/ontology#Location
 ontology:Location rdf:type owl:Class ;
-                  rdfs:subClassOf pleiades:Location .
+                  rdfs:subClassOf pleiades:Location ;
+                  ontology:hasType crm:E55_Type .
 
 
 ###  http://archaeology.link/ontology#MouldMaker
@@ -1084,6 +1090,7 @@ ontology:PartnerPotter rdf:type owl:Class ;
 ###  http://archaeology.link/ontology#Place
 ontology:Place rdf:type owl:Class ;
                rdfs:subClassOf pleiades:Place ;
+               ontology:hasLocation ontology:Location ;
                dc:description "place as a concept"@en ;
                rdfs:label "Place"@en .
 
@@ -1103,7 +1110,10 @@ ontology:Potmaker rdf:type owl:Class ;
 
 ###  http://archaeology.link/ontology#ProductionCentre
 ontology:ProductionCentre rdf:type owl:Class ;
-                          rdfs:subClassOf ontology:KilnRegion .
+                          rdfs:subClassOf ontology:KilnRegion ,
+                                          crm:E55_Type ;
+                          ontology:hasType crm:E55_Type ;
+                          rdfs:label "Production Centre"@en .
 
 
 ###  http://archaeology.link/ontology#Publisher
@@ -1114,7 +1124,9 @@ ontology:Publisher rdf:type owl:Class ;
 
 ###  http://archaeology.link/ontology#RepositoryLocation
 ontology:RepositoryLocation rdf:type owl:Class ;
-                            rdfs:subClassOf pleiades:Location ;
+                            rdfs:subClassOf ontology:Location ,
+                                            crm:E55_Type ;
+                            ontology:hasType crm:E55_Type ;
                             rdfs:label "Aufbewahrungsort"@de ,
                                        "Repository Location"@en .
 
@@ -1191,6 +1203,13 @@ ontology:Tradition rdf:type owl:Class ;
 <http://archaeonatural.cloud/ont/Site> rdf:type owl:Class ;
                                        rdfs:subClassOf pleiades:Location ;
                                        rdfs:label "ArnO Site"@en .
+
+
+###  http://archaeonatural.cloud/ont/SpatiotemporalInformation
+<http://archaeonatural.cloud/ont/SpatiotemporalInformation> rdf:type owl:Class ;
+                                                            rdfs:subClassOf geosparql:SpatialObject ;
+                                                            rdfs:comment "Information containing of time period and geolocation information, thus forming a point in a 4-dimensional spatiotemporal feature space"@en ;
+                                                            rdfs:label "ArnO Spatiotemporal Information"@en .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000001
@@ -1291,8 +1310,7 @@ crm:E4_Period rdf:type owl:Class ;
 
 ###  http://www.cidoc-crm.org/cidoc-crm/E53_Place
 crm:E53_Place rdf:type owl:Class ;
-              rdfs:subClassOf ontology:Place ,
-                              pleiades:Place ;
+              rdfs:subClassOf pleiades:Place ;
               rdfs:comment """This class comprises extents in space, in particular on the surface of the earth, in the pure sense of physics: independent from temporal phenomena and matter.
         The instances of E53 Place are usually determined by reference to the position of “immobile” objects such as buildings, cities, mountains, rivers, or dedicated geodetic marks. A Place can be determined by combining a frame of reference and a location with respect to this frame. It may be identified by one or more instances of E44 Place Appellation.
          It is sometimes argued that instances of E53 Place are best identified by global coordinates or absolute reference systems. However, relative references are often more relevant in the context of cultural documentation and tend to be more precise. In particular, we are often interested in position in relation to large, mobile objects, such as ships. For example, the Place at which Nelson died is known with reference to a large mobile object – H.M.S Victory. A resolution of this Place in terms of absolute coordinates would require knowledge of the movements of the vessel and the precise time of death, either of which may be revised, and the result would lack historical and cultural relevance.
@@ -1312,8 +1330,8 @@ crm:E55_Type rdf:type owl:Class ;
              rdfs:comment """This class comprises concepts denoted by terms from thesauri and controlled vocabularies used to characterize and classify instances of CRM classes. Instances of E55 Type represent concepts  in contrast to instances of E41 Appellation which are used to name instances of CRM classes.
         E55 Type is the CRM’s interface to domain specific ontologies and thesauri. These can be represented in the CRM as subclasses of E55 Type, forming hierarchies of terms, i.e. instances of E55 Type linked via P127 has broader  term (has narrower term). Such hierarchies may be extended with additional properties.
         """ ;
-             rdfs:label "Tipo"@pt ,
-                        "Type"@en ,
+             rdfs:label "E55 Type"@en ,
+                        "Tipo"@pt ,
                         "Type"@fr ,
                         "Typus"@de ,
                         "Τύπος"@el ,
@@ -1535,6 +1553,14 @@ pleiades:Place rdf:type owl:Class ;
 
 ontology:hasImage rdfs:label "image"@en ,
                              "Bild"@de .
+
+
+ontology:hasLocation rdfs:label "hat Standort"@de ,
+                                "has location"@en .
+
+
+ontology:hasType rdfs:label "has type"@en ,
+                            "hat Typ"@de .
 
 
 prov:endedAtTime rdfs:label "ended at time"@en .
