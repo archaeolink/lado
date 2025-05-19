@@ -44,11 +44,13 @@ vocab:placeholder rdf:type owl:AnnotationProperty .
 
 
 ###  http://archaeology.link/ontology#hasLocation
-ontology:hasLocation rdf:type owl:AnnotationProperty .
+ontology:hasLocation rdf:type owl:AnnotationProperty ;
+                     rdfs:range ontology:Location .
 
 
 ###  http://archaeology.link/ontology#hasType
-ontology:hasType rdf:type owl:AnnotationProperty .
+ontology:hasType rdf:type owl:AnnotationProperty ;
+                 rdfs:range crm:E55_Type .
 
 
 ###  http://archaeology.link/ontology#isActorStatus
@@ -308,8 +310,7 @@ ontology:hasKilnsite rdf:type owl:ObjectProperty ;
 
 ###  http://archaeology.link/ontology#hasLocation
 ontology:hasLocation rdf:type owl:ObjectProperty ;
-                     rdfs:domain ontology:Place ;
-                     rdfs:range ontology:Location .
+                     rdfs:domain ontology:Place .
 
 
 ###  http://archaeology.link/ontology#hasMemberItem
@@ -401,8 +402,7 @@ ontology:hasStatus rdf:type owl:ObjectProperty ;
 ###  http://archaeology.link/ontology#hasType
 ontology:hasType rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf ontology:hasBroaderItem ;
-                 rdfs:domain owl:Thing ;
-                 rdfs:range crm:E55_Type .
+                 rdfs:domain owl:Thing .
 
 
 ###  http://archaeology.link/ontology#hasWorker
@@ -1144,6 +1144,13 @@ ontology:SYE2_Feature rdf:type owl:Class ;
                       rdfs:label "SYE2 Feature (Group)"@en .
 
 
+###  http://archaeology.link/ontology#SYE3_Assignment
+ontology:SYE3_Assignment rdf:type owl:Class ;
+                         rdfs:subClassOf <https://ontology.swissartresearch.net/aaao/ZE18_Critical_Reading> ,
+                                         <https://ontology.swissartresearch.net/aaao/ZE19_Naming> ;
+                         rdfs:label "SYE3 Assignment"@en .
+
+
 ###  http://archaeology.link/ontology#Service
 ontology:Service rdf:type owl:Class ;
                  rdfs:subClassOf skos:Collection ;
@@ -1158,7 +1165,7 @@ ontology:Service_Collection rdf:type owl:Class ;
 
 ###  http://archaeology.link/ontology#SpaceTimeItem
 ontology:SpaceTimeItem rdf:type owl:Class ;
-                       rdfs:subClassOf crm:E4_Period ;
+                       rdfs:subClassOf crm:E92_Spacetime_Volume ;
                        rdfs:label "Space-Time Concept"@en .
 
 
@@ -1225,6 +1232,12 @@ arno:SpatiotemporalInformation rdf:type owl:Class ;
                           rdfs:label "Schema Thing"@en .
 
 
+###  http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment
+crm:E13_Attribute_Assignment rdf:type owl:Class ;
+                             rdfs:subClassOf crm:E7_Activity ;
+                             rdfs:label "E13 Attribute Assignment"@en .
+
+
 ###  http://www.cidoc-crm.org/cidoc-crm/E1_CRM_Entity
 crm:E1_CRM_Entity rdf:type owl:Class ;
                   rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000001> ;
@@ -1286,6 +1299,12 @@ crm:E25_Human-Made_Feature rdf:type owl:Class ;
                                       "人造外貌表征"@zh .
 
 
+###  http://www.cidoc-crm.org/cidoc-crm/E2_Temporal_Entity
+crm:E2_Temporal_Entity rdf:type owl:Class ;
+                       rdfs:subClassOf skos:Concept ;
+                       rdfs:label "E2 Temporal Entity" .
+
+
 ###  http://www.cidoc-crm.org/cidoc-crm/E39_Actor
 crm:E39_Actor rdf:type owl:Class ;
               rdfs:subClassOf skos:Concept ;
@@ -1303,10 +1322,9 @@ crm:E39_Actor rdf:type owl:Class ;
 
 ###  http://www.cidoc-crm.org/cidoc-crm/E4_Period
 crm:E4_Period rdf:type owl:Class ;
-              rdfs:subClassOf crm:E92_Spacetime_Volume ;
+              rdfs:subClassOf crm:E2_Temporal_Entity ;
               ontology:version "7.1.3" ;
-              rdfs:label "Period"@en ,
-                         "Phase"@de .
+              rdfs:label "E4 Period"@en .
 
 
 ###  http://www.cidoc-crm.org/cidoc-crm/E53_Place
@@ -1343,7 +1361,7 @@ crm:E55_Type rdf:type owl:Class ;
 ###  http://www.cidoc-crm.org/cidoc-crm/E5_Event
 crm:E5_Event rdf:type owl:Class ;
              rdfs:subClassOf crm:E4_Period ;
-             rdfs:label "Event"@en .
+             rdfs:label "E5 Event"@en .
 
 
 ###  http://www.cidoc-crm.org/cidoc-crm/E7_Activity
@@ -1351,7 +1369,7 @@ crm:E7_Activity rdf:type owl:Class ;
                 rdfs:subClassOf prov:Activity ;
                 dc:description """This class comprises actions intentionally carried out by instances of E39 Actor that result in changes of state in the cultural, social, or physical systems documented.
 This notion includes complex, composite, and long-lasting actions such as the building of a settlement or a war, as well as simple, short-lived actions such as the opening of a door."""@en ;
-                rdfs:label "Activity"@en .
+                rdfs:label "E7 Activity"@en .
 
 
 ###  http://www.cidoc-crm.org/cidoc-crm/E92_Spacetime_Volume
@@ -1359,7 +1377,7 @@ crm:E92_Spacetime_Volume rdf:type owl:Class ;
                          rdfs:subClassOf skos:Concept ;
                          ontology:version "7.1.3" ;
                          dc:description "This class comprises 4-dimensional point sets (volumes) in physical spacetime (in contrast to mathematical models of it) regardless of their true geometric forms. They may derive their identity from being the extent of a material phenomenon or from being the interpretation of an expression defining an extent in spacetime. Intersections of instances of E92 Spacetime Volume, E53 Place, and E52 Time-Span are also regarded as instances of E92 Spacetime Volume. An instance of E92 Spacetime Volume is either contiguous or composed of a finite number of contiguous subsets. Its boundaries may be fuzzy due to the properties of the phenomena it derives from or due to the limited precision up to which defining expression can be identified with a real extent in spacetime. The duration of existence of an instance of E92 Spacetime Volume is its projection on time."@en ;
-                         rdfs:label "Spacetime Volume"@en .
+                         rdfs:label "E92 Spacetime Volume"@en .
 
 
 ###  http://www.opengis.net/ont/geosparql#Feature
@@ -1502,7 +1520,7 @@ prov:SoftwareAgent rdf:type owl:Class ;
 ###  http://www.wikidata.org/entity/Q3133368
 wikidata:Q3133368 rdf:type owl:Class ;
                   rdfs:subClassOf crm:E5_Event ;
-                  rdfs:label "Repository"@en .
+                  rdfs:label "Wikidata Repository"@en .
 
 
 ###  http://xmlns.com/foaf/0.1/Group
@@ -1526,7 +1544,25 @@ foaf:Person rdf:type owl:Class ;
 ###  http://xmlns.com/foaf/0.1/Project
 foaf:Project rdf:type owl:Class ;
              rdfs:subClassOf crm:E5_Event ;
-             rdfs:label "Project"@en .
+             rdfs:label "FOAF Project"@en .
+
+
+###  https://ontology.swissartresearch.net/aaao/ZE13_Speech_Act
+<https://ontology.swissartresearch.net/aaao/ZE13_Speech_Act> rdf:type owl:Class ;
+                                                             rdfs:subClassOf crm:E13_Attribute_Assignment ;
+                                                             rdfs:label "ZE13 Speech Act"@en .
+
+
+###  https://ontology.swissartresearch.net/aaao/ZE18_Critical_Reading
+<https://ontology.swissartresearch.net/aaao/ZE18_Critical_Reading> rdf:type owl:Class ;
+                                                                   rdfs:subClassOf <https://ontology.swissartresearch.net/aaao/ZE13_Speech_Act> ;
+                                                                   rdfs:label "ZE18 Critical Reading"@en .
+
+
+###  https://ontology.swissartresearch.net/aaao/ZE19_Naming
+<https://ontology.swissartresearch.net/aaao/ZE19_Naming> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <https://ontology.swissartresearch.net/aaao/ZE13_Speech_Act> ;
+                                                         rdfs:label "ZE19 Naming"@en .
 
 
 ###  https://pleiades.stoa.org/places/vocab#Location
