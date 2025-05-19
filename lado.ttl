@@ -965,7 +965,7 @@ ontology:DieImpression rdf:type owl:Class ;
 ###  http://archaeology.link/ontology#DiscoverySite
 ontology:DiscoverySite rdf:type owl:Class ;
                        rdfs:subClassOf ontology:Location ,
-                                       crm:E55_Type ;
+                                       ontology:PlaceType ;
                        ontology:hasType crm:E55_Type ;
                        rdfs:label "Discovery Site"@en .
 
@@ -1097,6 +1097,12 @@ ontology:Place rdf:type owl:Class ;
                rdfs:label "Place"@en .
 
 
+###  http://archaeology.link/ontology#PlaceType
+ontology:PlaceType rdf:type owl:Class ;
+                   rdfs:subClassOf crm:E55_Type ;
+                   rdfs:label "Place Type"@en .
+
+
 ###  http://archaeology.link/ontology#Potform
 ontology:Potform rdf:type owl:Class ;
                  rdfs:subClassOf ontology:GenericPotform .
@@ -1113,7 +1119,7 @@ ontology:Potmaker rdf:type owl:Class ;
 ###  http://archaeology.link/ontology#ProductionCentre
 ontology:ProductionCentre rdf:type owl:Class ;
                           rdfs:subClassOf ontology:KilnRegion ,
-                                          crm:E55_Type ;
+                                          ontology:PlaceType ;
                           ontology:hasType crm:E55_Type ;
                           rdfs:label "Production Centre"@en .
 
@@ -1127,10 +1133,15 @@ ontology:Publisher rdf:type owl:Class ;
 ###  http://archaeology.link/ontology#RepositoryLocation
 ontology:RepositoryLocation rdf:type owl:Class ;
                             rdfs:subClassOf ontology:Location ,
-                                            crm:E55_Type ;
+                                            ontology:PlaceType ;
                             ontology:hasType crm:E55_Type ;
                             rdfs:label "Aufbewahrungsort"@de ,
                                        "Repository Location"@en .
+
+
+###  http://archaeology.link/ontology#SYE11_ObservationType
+ontology:SYE11_ObservationType rdf:type owl:Class ;
+                               rdfs:subClassOf crm:E55_Type .
 
 
 ###  http://archaeology.link/ontology#SYE1_InformationCarrier
