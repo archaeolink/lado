@@ -958,7 +958,7 @@ ontology:DieImpression rdf:type owl:Class ;
 
 ###  http://archaeology.link/ontology#DiscoverySite
 ontology:DiscoverySite rdf:type owl:Class ;
-                       rdfs:subClassOf ontology:Place ;
+                       rdfs:subClassOf pleiades:Location ;
                        rdfs:label "Discovery Site"@en ,
                                   "Entdeckungsort"@de .
 
@@ -1013,7 +1013,8 @@ ontology:IndependentPotter rdf:type owl:Class ;
 
 ###  http://archaeology.link/ontology#InformationCarrier
 ontology:InformationCarrier rdf:type owl:Class ;
-                            rdfs:subClassOf crm:E22_Human-Made_Object .
+                            rdfs:subClassOf crm:E22_Human-Made_Object ;
+                            rdfs:label "Information Carrier"@en .
 
 
 ###  http://archaeology.link/ontology#Inscription
@@ -1049,14 +1050,14 @@ ontology:KilnFiringPerson rdf:type owl:Class ;
 
 ###  http://archaeology.link/ontology#KilnRegion
 ontology:KilnRegion rdf:type owl:Class ;
-                    rdfs:subClassOf ontology:Place ;
+                    rdfs:subClassOf pleiades:Location ;
                     rdfs:label "Kiln region"@en ,
                                "Produktionsregion"@de .
 
 
 ###  http://archaeology.link/ontology#Location
 ontology:Location rdf:type owl:Class ;
-                  rdfs:subClassOf ontology:Place .
+                  rdfs:subClassOf pleiades:Location .
 
 
 ###  http://archaeology.link/ontology#MouldMaker
@@ -1113,9 +1114,21 @@ ontology:Publisher rdf:type owl:Class ;
 
 ###  http://archaeology.link/ontology#RepositoryLocation
 ontology:RepositoryLocation rdf:type owl:Class ;
-                            rdfs:subClassOf ontology:Place ;
+                            rdfs:subClassOf pleiades:Location ;
                             rdfs:label "Aufbewahrungsort"@de ,
                                        "Repository Location"@en .
+
+
+###  http://archaeology.link/ontology#SYE1_InformationCarrier
+ontology:SYE1_InformationCarrier rdf:type owl:Class ;
+                                 rdfs:subClassOf ontology:InformationCarrier ;
+                                 rdfs:label "SYE1 Information Carrier"@en .
+
+
+###  http://archaeology.link/ontology#SYE2_Feature
+ontology:SYE2_Feature rdf:type owl:Class ;
+                      rdfs:subClassOf ontology:Feature ;
+                      rdfs:label "SYE2 Feature (Group)"@en .
 
 
 ###  http://archaeology.link/ontology#Service
@@ -1155,6 +1168,31 @@ ontology:Tradition rdf:type owl:Class ;
                    rdfs:subClassOf crm:E55_Type .
 
 
+###  http://archaeonatural.cloud/ont/Country
+<http://archaeonatural.cloud/ont/Country> rdf:type owl:Class ;
+                                          rdfs:subClassOf ontology:Place ;
+                                          rdfs:label "ArnO Country"@en .
+
+
+###  http://archaeonatural.cloud/ont/DiscoverySite
+<http://archaeonatural.cloud/ont/DiscoverySite> rdf:type owl:Class ;
+                                                rdfs:subClassOf pleiades:Location ;
+                                                rdfs:label "ArnO Discovery Site"@en .
+
+
+###  http://archaeonatural.cloud/ont/Place
+<http://archaeonatural.cloud/ont/Place> rdf:type owl:Class ;
+                                        rdfs:subClassOf ontology:Place ;
+                                        rdfs:comment "unspecified location information for the sample, e.g. administrative or topographic region or mountains/rivers/lakes/cities nearby"@en ;
+                                        rdfs:label "ArnO Place"@en .
+
+
+###  http://archaeonatural.cloud/ont/Site
+<http://archaeonatural.cloud/ont/Site> rdf:type owl:Class ;
+                                       rdfs:subClassOf pleiades:Location ;
+                                       rdfs:label "ArnO Site"@en .
+
+
 ###  http://purl.obolibrary.org/obo/BFO_0000001
 <http://purl.obolibrary.org/obo/BFO_0000001> rdf:type owl:Class ;
                                              rdfs:subClassOf <http://schema.org/Thing> ;
@@ -1191,7 +1229,7 @@ crm:E22_Human-Made_Object rdf:type owl:Class ;
                           rdfs:subClassOf crm:E24_Physical_Human-Made_Thing ;
                           rdfs:comment """This class comprises all persistent physical objects of any size that are purposely created by human activity and have physical boundaries that separate them completely in an objective way from other objects.
 The class also includes all aggregates of objects made for functional purposes of whatever kind, independent of physical coherence, such as a set of chessmen.""" ;
-                          rdfs:label "Human-Made Object"@en ,
+                          rdfs:label "E22 Human-Made Object"@en ,
                                      "Künstlicher Gegenstand"@de ,
                                      "Objet fabriqué"@fr ,
                                      "Objeto Fabricado"@pt ,
@@ -1221,8 +1259,8 @@ crm:E25_Human-Made_Feature rdf:type owl:Class ;
                            rdfs:comment "This class comprises physical features that are purposely created by human activity, such as scratches, artificial caves, artificial water channels, etc. In particular, it includes the information encoding features on mechanical or digital carriers." ;
                            rdfs:label "Característica Fabricada"@pt ,
                                       "Caractéristique fabriquée"@fr ,
+                                      "E25 Human-Made Feature"@en ,
                                       "Hergestelltes Merkmal"@de ,
-                                      "Human-Made Feature"@en ,
                                       "Ανθρωπογενές Μόρφωμα"@el ,
                                       "Искусственный Признак"@ru ,
                                       "人造外貌表征"@zh .
@@ -1253,15 +1291,16 @@ crm:E4_Period rdf:type owl:Class ;
 
 ###  http://www.cidoc-crm.org/cidoc-crm/E53_Place
 crm:E53_Place rdf:type owl:Class ;
-              rdfs:subClassOf skos:Concept ;
+              rdfs:subClassOf ontology:Place ,
+                              pleiades:Place ;
               rdfs:comment """This class comprises extents in space, in particular on the surface of the earth, in the pure sense of physics: independent from temporal phenomena and matter.
         The instances of E53 Place are usually determined by reference to the position of “immobile” objects such as buildings, cities, mountains, rivers, or dedicated geodetic marks. A Place can be determined by combining a frame of reference and a location with respect to this frame. It may be identified by one or more instances of E44 Place Appellation.
          It is sometimes argued that instances of E53 Place are best identified by global coordinates or absolute reference systems. However, relative references are often more relevant in the context of cultural documentation and tend to be more precise. In particular, we are often interested in position in relation to large, mobile objects, such as ships. For example, the Place at which Nelson died is known with reference to a large mobile object – H.M.S Victory. A resolution of this Place in terms of absolute coordinates would require knowledge of the movements of the vessel and the precise time of death, either of which may be revised, and the result would lack historical and cultural relevance.
         Any object can serve as a frame of reference for E53 Place determination. The model foresees the notion of a \"section\" of an E19 Physical Object as a valid E53 Place determination.""" ;
-              rdfs:label "Lieu"@fr ,
+              rdfs:label "E53 Place"@en ,
+                         "Lieu"@fr ,
                          "Local"@pt ,
                          "Ort"@de ,
-                         "Place"@en ,
                          "Τόπος"@el ,
                          "Место"@ru ,
                          "地点"@zh .
@@ -1307,43 +1346,61 @@ crm:E92_Spacetime_Volume rdf:type owl:Class ;
 ###  http://www.opengis.net/ont/geosparql#Feature
 geosparql:Feature rdf:type owl:Class ;
                   rdfs:subClassOf geosparql:SpatialObject ;
-                  rdfs:label "Feature"@en .
+                  rdfs:comment "A discrete spatial phenomenon in a universe of discourse."@en ;
+                  rdfs:label "GeoSPARQL Feature"@en .
 
 
 ###  http://www.opengis.net/ont/geosparql#Geometry
 geosparql:Geometry rdf:type owl:Class ;
                    rdfs:subClassOf geosparql:SpatialObject ;
-                   rdfs:label "Geometry"@en .
+                   rdfs:label "GeoSPARQL Geometry"@en .
 
 
 ###  http://www.opengis.net/ont/geosparql#SpatialObject
 geosparql:SpatialObject rdf:type owl:Class ;
                         rdfs:subClassOf crm:E53_Place ;
-                        rdfs:label "Spatial Object"@en .
+                        rdfs:comment "Anything spatial (being or having a shape, position or an extent)."@en ;
+                        rdfs:label "GeoSPARQL Spatial Object"@en .
+
+
+###  http://www.opengis.net/ont/sf#Geometry
+sf:Geometry rdf:type owl:Class ;
+            rdfs:subClassOf geosparql:Geometry ;
+            rdfs:comment """Geometry is the root class of the hierarchy.
+
+The instantiable subclasses of Geometry are restricted to 0, 1 and 2-dimensional geometric objects that exist in 2, 3 or 4-dimensional coordinate space (R2, R3 or R4). Geometry values in R2 have points with coordinate values for x and y. Geometry values in R3 have points with coordinate values for x, y and z or for x, y and m. Geometry values in R4 have points with coordinate values for x, y, z and m.
+
+The interpretation of the coordinates is subject to the coordinate reference systems associated to the point. All coordinates within a geometry object should be in the same coordinate reference systems. Each coordinate shall be unambiguously associated to a coordinate reference system either directly or through its containing geometry. The z coordinate of a point is typically, but not necessarily, represents altitude or elevation. The m coordinate represents a measurement.
+
+All Geometry classes described in this specification are defined so that instances of Geometry are topologically closed, i.e. all represented geometries include their boundary as point sets. This does not affect their representation, and open versions of the same classes may be used in other circumstances, such as topological representations."""@en ;
+            rdfs:label "SF Geometry"@en .
 
 
 ###  http://www.opengis.net/ont/sf#MultiLineString
 sf:MultiLineString rdf:type owl:Class ;
-                   rdfs:subClassOf geosparql:SpatialObject ;
-                   rdfs:label "Multi Line"@en .
+                   rdfs:subClassOf sf:Geometry ;
+                   rdfs:label "SF Multi Line"@en .
 
 
 ###  http://www.opengis.net/ont/sf#MultiPoint
 sf:MultiPoint rdf:type owl:Class ;
-              rdfs:subClassOf geosparql:SpatialObject ;
-              rdfs:label "Mulit Point"@en .
+              rdfs:subClassOf sf:Geometry ;
+              rdfs:label "SF Mulit Point"@en .
 
 
 ###  http://www.opengis.net/ont/sf#MultiPolygon
 sf:MultiPolygon rdf:type owl:Class ;
-                rdfs:subClassOf geosparql:SpatialObject ;
-                rdfs:label "Multi Polygon"@en .
+                rdfs:subClassOf sf:Geometry ;
+                rdfs:label "SF Multi Polygon"@en .
 
 
 ###  http://www.opengis.net/ont/sf#Point
 sf:Point rdf:type owl:Class ;
-         rdfs:subClassOf geosparql:SpatialObject ;
-         rdfs:label "Point"@en .
+         rdfs:subClassOf sf:Geometry ;
+         rdfs:comment """A Point is a 0-dimensional geometric object and represents a single location in coordinate space. 
+A Point has an x-coordinate value, a y-coordinate value. If called for by the associated Spatial Reference System, it may also have coordinate values for z and m.
+The boundary of a Point is the empty set."""@en ;
+         rdfs:label "SF Point"@en .
 
 
 ###  http://www.w3.org/1999/02/22-rdf-syntax-ns#Property
@@ -1453,9 +1510,15 @@ foaf:Project rdf:type owl:Class ;
              rdfs:label "Project"@en .
 
 
+###  https://pleiades.stoa.org/places/vocab#Location
+pleiades:Location rdf:type owl:Class ;
+                  rdfs:subClassOf geosparql:SpatialObject ;
+                  rdfs:label "Pleiades Location"@en .
+
+
 ###  https://pleiades.stoa.org/places/vocab#Place
 pleiades:Place rdf:type owl:Class ;
-               rdfs:subClassOf geosparql:SpatialObject ;
+               rdfs:subClassOf skos:Concept ;
                dc:description "Places are instances of skos:Concept as well as contexts for Locations and Names."@en ;
                rdfs:label "Pleiades Place"@de ,
                           "Pleiades Place"@en .
