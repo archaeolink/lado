@@ -8,6 +8,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix aaao: <https://ontology.swissartresearch.net/aaao/> .
 @prefix arno: <http://archaeonatural.cloud/ont/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix lado: <http://archaeology.link/ontology#> .
@@ -1146,8 +1147,8 @@ ontology:SYE2_Feature rdf:type owl:Class ;
 
 ###  http://archaeology.link/ontology#SYE3_Assignment
 ontology:SYE3_Assignment rdf:type owl:Class ;
-                         rdfs:subClassOf <https://ontology.swissartresearch.net/aaao/ZE18_Critical_Reading> ,
-                                         <https://ontology.swissartresearch.net/aaao/ZE19_Naming> ;
+                         rdfs:subClassOf aaao:ZE18_Critical_Reading ,
+                                         aaao:ZE19_Naming ;
                          rdfs:label "SYE3 Assignment"@en .
 
 
@@ -1548,21 +1549,21 @@ foaf:Project rdf:type owl:Class ;
 
 
 ###  https://ontology.swissartresearch.net/aaao/ZE13_Speech_Act
-<https://ontology.swissartresearch.net/aaao/ZE13_Speech_Act> rdf:type owl:Class ;
-                                                             rdfs:subClassOf crm:E13_Attribute_Assignment ;
-                                                             rdfs:label "ZE13 Speech Act"@en .
+aaao:ZE13_Speech_Act rdf:type owl:Class ;
+                     rdfs:subClassOf crm:E13_Attribute_Assignment ;
+                     rdfs:label "ZE13 Speech Act"@en .
 
 
 ###  https://ontology.swissartresearch.net/aaao/ZE18_Critical_Reading
-<https://ontology.swissartresearch.net/aaao/ZE18_Critical_Reading> rdf:type owl:Class ;
-                                                                   rdfs:subClassOf <https://ontology.swissartresearch.net/aaao/ZE13_Speech_Act> ;
-                                                                   rdfs:label "ZE18 Critical Reading"@en .
+aaao:ZE18_Critical_Reading rdf:type owl:Class ;
+                           rdfs:subClassOf aaao:ZE13_Speech_Act ;
+                           rdfs:label "ZE18 Critical Reading"@en .
 
 
 ###  https://ontology.swissartresearch.net/aaao/ZE19_Naming
-<https://ontology.swissartresearch.net/aaao/ZE19_Naming> rdf:type owl:Class ;
-                                                         rdfs:subClassOf <https://ontology.swissartresearch.net/aaao/ZE13_Speech_Act> ;
-                                                         rdfs:label "ZE19 Naming"@en .
+aaao:ZE19_Naming rdf:type owl:Class ;
+                 rdfs:subClassOf aaao:ZE13_Speech_Act ;
+                 rdfs:label "ZE19 Naming"@en .
 
 
 ###  https://pleiades.stoa.org/places/vocab#Location
