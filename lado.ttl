@@ -31,7 +31,7 @@
                                      dc:publisher "Leibniz-Zentrum für Archäologie (LEIZA)" ;
                                      dc:rights "CC BY 4.0" ;
                                      dc:subject "archaeology; samian ware;" ;
-                                     dct:modified "2025-05-19" ;
+                                     dct:modified "2025-05-20" ;
                                      rdfs:comment "This ontology contains classes to describe data of the LEIZA."@en ;
                                      rdfs:label "Linked Archaeological Data Ontology"@en ;
                                      owl:versionInfo 1.1 .
@@ -180,6 +180,30 @@ ontology:PlaceOfInterest rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf geosparql:hasGeometry ;
                          rdfs:comment "c.f. https://www.ogc.org/standards/geosparql, 1.0, OGC GeoSPARQL - A Geographic Query Language for RDF Data, 11-052r4, Annex B, B.1"@en ;
                          rdfs:label "place of interest"@en .
+
+
+###  http://archaeology.link/ontology#SYP1_hasFeature
+ontology:SYP1_hasFeature rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf crm:P56_bears_feature ;
+                         rdfs:domain ontology:SYE1_InformationCarrier ;
+                         rdfs:range ontology:SYE2_Feature ;
+                         rdfs:label "SYP1 has feature"@en .
+
+
+###  http://archaeology.link/ontology#SYP2_influenced
+ontology:SYP2_influenced rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf crm:P15i_influenced ;
+                         rdfs:domain crm:E1_CRM_Entity ;
+                         rdfs:range crm:E1_CRM_Entity ;
+                         rdfs:label "SYP2 influenced"@en .
+
+
+###  http://archaeology.link/ontology#SYP3_influencedBy
+ontology:SYP3_influencedBy rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf crm:P15_was_influenced_by ;
+                           rdfs:domain ontology:SYE2_Feature ;
+                           rdfs:range ontology:SYE5_Observation ;
+                           rdfs:label "SYP3 influenced by"@en .
 
 
 ###  http://archaeology.link/ontology#arachneEntityID
@@ -503,6 +527,33 @@ cc:attributionURL rdf:type owl:ObjectProperty ;
 ###  http://creativecommons.org/ns#license
 cc:license rdf:type owl:ObjectProperty ;
            rdfs:label "license"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P15_was_influenced_by
+crm:P15_was_influenced_by rdf:type owl:ObjectProperty ;
+                          rdfs:domain crm:E5_Event ;
+                          rdfs:range crm:E1_CRM_Entity ;
+                          rdfs:label "was influenced by"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P15i_influenced
+crm:P15i_influenced rdf:type owl:ObjectProperty ;
+                    rdfs:domain crm:E1_CRM_Entity ;
+                    rdfs:range crm:E5_Event ;
+                    rdfs:label "influenced"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P46_is_composed_of
+crm:P46_is_composed_of rdf:type owl:ObjectProperty ;
+                       rdfs:label "P46 is composed of"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/P56_bears_feature
+crm:P56_bears_feature rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf crm:P46_is_composed_of ;
+                      rdfs:domain crm:E71_Human-Made_Thing ;
+                      rdfs:range crm:E25_Human-Made_Feature ;
+                      rdfs:label "P56 bears feature"@en .
 
 
 ###  http://www.opengis.net/ont/geosparql#hasGeometry
