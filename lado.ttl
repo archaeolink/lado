@@ -533,14 +533,14 @@ cc:license rdf:type owl:ObjectProperty ;
 crm:P15_was_influenced_by rdf:type owl:ObjectProperty ;
                           rdfs:domain crm:E5_Event ;
                           rdfs:range crm:E1_CRM_Entity ;
-                          rdfs:label "was influenced by"@en .
+                          rdfs:label "P15 was influenced by"@en .
 
 
 ###  http://www.cidoc-crm.org/cidoc-crm/P15i_influenced
 crm:P15i_influenced rdf:type owl:ObjectProperty ;
                     rdfs:domain crm:E1_CRM_Entity ;
                     rdfs:range crm:E5_Event ;
-                    rdfs:label "influenced"@en .
+                    rdfs:label "P15i influenced"@en .
 
 
 ###  http://www.cidoc-crm.org/cidoc-crm/P46_is_composed_of
